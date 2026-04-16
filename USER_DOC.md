@@ -41,7 +41,3 @@ grep -A2 network docker-compose.yml
 docker volume ls | grep srcs
 docker volume inspect srcs_db_data
 ```
-
-- Website: https://mde-maga.42.fr
-- Admin: https://mde-maga.42.fr/wp-admin
-- Default credentials: secrets/credentials.txt
