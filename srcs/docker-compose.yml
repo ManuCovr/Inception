@@ -1,0 +1,62 @@
+services:
+  nginx:
+    build: ./requirements/nginx
+    ports: ["443:443"]
+    volumes: 
+      - wordpress_files:/var/www/html
+    networks: ["inception_net"]
+    restart: unless-stopped
+    depends_on: [wordpress]
+
+  wordpress:
+    build: ./requirements/wordpress
+    volumes: 
+      - wordpress_files:/var/www/html
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+    secrets:
+      - db_password
+      - wordpress_admin_password
+    networks: ["inception_net"]
+    restart: unless-stopped
+    depends_on: [mariadb]
+
+  mariadb:
+    build: ./requirements/mariadb
+    volumes: 
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+    secrets:
+      - db_password
+      - db_root_password
+    networks: ["inception_net"]
+    restart: unless-stopped
+
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/vboxuser/data/db
+  wordpress_files:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind  
+      device: /home/vboxuser/data/wordpress
+
+networks:
+  inception_net:
+    driver: bridge
+
+secrets:
+  db_password:
+    file: ../secrets/db_password.txt
+  db_root_password:
+    file: ../secrets/db_root_password.txt
+  wordpress_admin_password:
+    file: ../secrets/wordpress_admin_password.txt
