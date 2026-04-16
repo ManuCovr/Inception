@@ -1,0 +1,12 @@
+docker stop $(docker ps -qa)  # Clean Docker
+rm -rf inception/ && git clone repo inception/
+cd inception/
+
+make && docker ps && curl -k https://mde-maga.42.fr | head -5 && make down && make
+
+
+head requirements/*/Dockerfile
+grep -A2 network docker-compose.yml
+docker volume ls | grep srcs
+docker volume inspect srcs_db_data
+
