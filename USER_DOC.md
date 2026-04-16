@@ -6,9 +6,9 @@
 - **MariaDB**: WordPress database (2 users: `wpuser`, `siteadmin`)
 
 ## Start/Stop
-make
-make down
-make clean
+- make
+- make down
+- make clean
 
 
 ## Access
