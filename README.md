@@ -1,12 +1,12 @@
-*This project has been created as part of the 42 curriculum by mde-maga.*
+*_This project has been created as part of the 42 curriculum by mde-maga._*
 
 ## Description
-Docker NGINX+WordPress+MariaDB. Custom Debian images, TLSv1.3 HTTPS, named volumes in ~/data/.
+**Docker NGINX+WordPress+MariaDB** infrastructure using custom **Debian** images with **TLSv1.3 HTTPS**, **named volumes** in `~/data/`.
 
-**VM→Docker:** Containers lighter than VMs
-**Secrets→ENV:** Secure file storage  
-**Docker Network:** Container isolation
-**Named Volumes:** Persistent portable data
+**VM→Docker**: Containers share host kernel (5-10x lighter, <1s startup vs minutes) [web:1]  
+**Secrets→ENV**: Secrets mount as files (in memory only), ENV vars persist in logs/images [web:9]  
+**Docker Network**: Container isolation + DNS vs host network (security risk, no isolation) [web:1]  
+**Named Volumes**: Docker-managed, portable vs bind mounts (host-specific paths) [web:9]
 
 ## Instructions
 1. `su -`, install Docker, `usermod -aG docker $USER`, reboot
@@ -14,5 +14,5 @@ Docker NGINX+WordPress+MariaDB. Custom Debian images, TLSv1.3 HTTPS, named volum
 3. `make`
 
 ## Resources
-Docker docs, NGINX TLSv1.3, WordPress Docker
-No AI was used on the making of this project
+[Docker docs](https://docs.docker.com), [NGINX TLSv1.3](https://nginx.org/en/docs/http/configuring_https_servers.html), [WordPress Docker](https://hub.docker.com/_/wordpress)  
+No AI was used.

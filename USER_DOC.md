@@ -1,6 +1,30 @@
-**Start:** \`make\`  
-**Stop:** \`make down\`  
-**Site:** https://mde-maga.42.fr (self-signed OK)  
-**Admin:** https://mde-maga.42.fr/wp-admin  
-**Data:** ~/data/db ~/data/wordpress  
-**Check:** \`docker ps\`" > USER_DOC.md
+# User Documentation
+
+## Services Provided
+- **NGINX**: HTTPS reverse proxy (port 443, TLSv1.3 only)
+- **WordPress + php-fpm**: Dynamic content (connected via fastcgi)
+- **MariaDB**: WordPress database (2 users: `wpuser`, `siteadmin`)
+
+## Start/Stop
+make # Start all services
+make down # Stop + remove containers
+make clean # Full cleanup (volumes preserved)
+
+
+## Access
+- **Website**: https://mde-maga.42.fr (self-signed cert OK)
+- **Admin**: https://mde-maga.42.fr/wp-admin
+- **Default credentials**: Check `secrets/credentials.txt`
+
+## Data Storage
+/home/mde-maga/data/
+├── mariadb/ # Database files
+└── wordpress/ # Website files
+
+
+## Health Check
+```bash
+docker ps                    # All 3 containers running
+curl -k https://mde-maga.42.fr | head -5  # HTML response
+docker logs inception-nginx-1 | tail     # No errors
+```
