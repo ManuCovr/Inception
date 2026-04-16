@@ -12,14 +12,14 @@
 - make
 
 ## Project Structure
-srcs/
-├── requirements/
-│ ├── nginx/Dockerfile # Custom NGINX + TLSv1.3
-│ ├── wordpress/Dockerfile # php8.2-fpm + WP core
-│ └── mariadb/Dockerfile # MariaDB + init script
-├── docker-compose.yml # Services + named volumes
-└── .env # Domain + DB config
-secrets/ # Password files
+- srcs/requirements/ contains the Dockerfiles:
+  * nginx/Dockerfile - Custom NGINX with TLSv1.3 
+  * wordpress/Dockerfile - php8.2-fpm + WordPress core
+  * mariadb/Dockerfile - MariaDB server + database init script
+  
+- srcs/docker-compose.yml defines all services and named volumes
+- srcs/.env holds domain name and database configuration
+- secrets/ contains password files (gitignored)
 
 
 ## Key Commands

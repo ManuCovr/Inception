@@ -18,9 +18,8 @@ make clean
 
 ## Data Storage
 /home/mde-maga/data/
-├── mariadb/ # Database files
-└── wordpress/ # Website files
-
+    - mariadb (database files)
+    - wordpress (website files)
 
 ## Health Check
 ```bash
