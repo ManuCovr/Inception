@@ -18,8 +18,8 @@
 
 ## Data Storage
 /home/mde-maga/data/
-    - mariadb (database files)
-    - wordpress (website files)
+- mariadb (database files)
+- wordpress (website files)
 
 ## Health Check
 ```bash
