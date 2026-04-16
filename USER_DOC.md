@@ -17,9 +17,8 @@
 - **Default credentials**: Check `secrets`
 
 ## Data Storage
-/home/mde-maga/data/
-- mariadb (database files)
-- wordpress (website files)
+/home/mde-maga/data/mariadb (database files)
+/home/mde-maga/data/wordpress (website files)
 
 ## Health Check
 ```bash
