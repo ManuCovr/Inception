@@ -7,4 +7,4 @@ RUN apt-get update \
  && sed -i 's/^listen = .*/listen = 0.0.0.0:9000/' /etc/php/*/fpm/pool.d/www.conf
 COPY tools/setup.sh /setup.sh
 RUN chmod +x /setup.sh
-CMD ["/setup.sh"]
+ENTRYPOINT ["/setup.sh"]
