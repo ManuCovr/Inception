@@ -14,7 +14,7 @@
 ## Access
 - **Website**: https://mde-maga.42.fr (self-signed cert OK)
 - **Admin**: https://mde-maga.42.fr/wp-admin
-- **Default credentials**: Check `secrets/credentials.txt`
+- **Default credentials**: Check `secrets`
 
 ## Data Storage
 /home/mde-maga/data/
